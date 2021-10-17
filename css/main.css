@@ -3,6 +3,11 @@ body{
     background-color: bisque;
 }
 
+.caption{
+    font-style: italic;
+    font-size: 0.9em;
+}
+
 #main{
     background-color: white;
     width: 80%;
