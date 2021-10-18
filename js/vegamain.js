@@ -83,7 +83,7 @@ var vlWholeCountrySpec = {
           "field": "latitude",
           "type": "quantitative"
         },
-        "size": {"value": 1},
+        "size": {"value": 3},
         "color": {
           "field": "frp",
           "type": "quantitative",
@@ -173,10 +173,67 @@ var vlKangarooIslandSpec = {
   ]
 }
 
+var vlFireRankingSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600, "height": 300,
+  "data": {
+    "url": "data/largest_fires.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "Name",
+      "sort": "-x",
+    },
+    "x": {
+      "field": "Area burned (km2)",
+      "type": 'quantitative',
+    },
+    // "color": {
+    //   "field": "Area burned (km2)",
+    //   "type": "quantitative",
+    //   "scale": {
+    //     "scale": "log",
+    //     "scheme": "inferno"
+    //   }
+    // }
+  },
+  "mark": 'bar',
+}
+
+var vlCompareSizeSpec = {
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 600, "height": 300,
+  "data": {
+    "url": "data/sizeComparison.csv"
+  },
+  "encoding": {
+    "y": {
+      "field": "Name",
+      "sort": "-x",
+    },
+    "x": {
+      "field": "Size",
+      "type": 'quantitative',
+      "title": "Area (km2)"
+    },
+    // "color": {
+    //   "field": "Area burned (km2)",
+    //   "type": "quantitative",
+    //   "scale": {
+    //     "scale": "log",
+    //     "scheme": "inferno"
+    //   }
+    // }
+  },
+  "mark": 'bar',
+}
+
 
   vegaEmbed('#stateSummary', vlStateSpec);
   vegaEmbed('#wholeCountryWorst', vlWholeCountrySpec);
   vegaEmbed('#kangarooIsland', vlKangarooIslandSpec);
+  vegaEmbed('#fireRanking', vlFireRankingSpec);
+  vegaEmbed('#compareSize', vlCompareSizeSpec);
 
 
 // places to plot:
